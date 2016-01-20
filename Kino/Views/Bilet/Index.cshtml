@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Kino.Models.Bilet>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.rodzaj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cena)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.rodzaj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cena)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.bilet_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.bilet_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.bilet_id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

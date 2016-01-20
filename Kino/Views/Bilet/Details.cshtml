@@ -1,0 +1,50 @@
+﻿@model Kino.Models.Bilet
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Bilet</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.rodzaj)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.rodzaj)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.opis)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.opis)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.cena)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.cena)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.bilet_id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿@model Kino.Models.Klient
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>Klient</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.imie, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.imie)
+                    @Html.ValidationMessageFor(model => model.imie)
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.nazwisko, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.nazwisko)
+                    @Html.ValidationMessageFor(model => model.nazwisko)
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.data_zak, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.data_zak)
+                    @Html.ValidationMessageFor(model => model.data_zak)
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.bilet_id, "bilet_id", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("bilet_id", String.Empty)
+                    @Html.ValidationMessageFor(model => model.bilet_id)
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
